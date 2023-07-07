@@ -47,4 +47,18 @@ export class TasksService {
       message: 'Task deleted successfully',
     }
   }
+
+  updateTaskStatus(id: string, status: TaskStatus): Task | object {
+    const task = this.tasks.find(task => task.id === id);
+
+    if (task) {
+      task.status = status;
+      return task;
+    }
+
+    return {
+      status: Status.FAIL,
+      message: 'Task not found',
+    }
+  }
 }
