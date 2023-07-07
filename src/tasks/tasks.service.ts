@@ -38,4 +38,13 @@ export class TasksService {
     this.tasks.push(task);
     return task;
   }
+
+  deleteTaskById(id: string): object {
+    this.tasks = this.tasks.filter(task => task.id !== id);
+
+    return {
+      status: Status.SUCCESS,
+      message: 'Task deleted successfully',
+    }
+  }
 }
